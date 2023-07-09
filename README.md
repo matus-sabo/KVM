@@ -204,7 +204,7 @@ sudo usermod -a -G libvirt $(whoami)
 Working out of the box
 
 # Windows VM ( vm-sample/windows.xml )
-Install virtio drivers
+Install virtio drivers to windows VM
 https://github.com/virtio-win/virtio-win-pkg-scripts/tree/master
 
 # OSX VM ( vm-sample/osx.xml )
@@ -216,14 +216,10 @@ Cpu `cores` value must be power of 2 ( 2, 4, 8, 16, ... )
 ```
 
 ## Apple OSK key
-You need set correct `osk` key value in `vm-sample/osx.xml` you can google for value or copy from [OSX-KVM/macOS-libvirt-Catalina.xml](https://github.com/kholia/OSX-KVM/blob/master/macOS-libvirt-Catalina.xml)
+You need set correct `osk` key value in `vm-sample/osx.xml` you can use google or copy from [OSX-KVM/macOS-libvirt-Catalina.xml](https://github.com/kholia/OSX-KVM/blob/master/macOS-libvirt-Catalina.xml)
 ```xml
 <qemu:arg value="isa-applesmc,osk=..."/>
 ```
-
-https://github.com/kholia/OSX-KVM/blob/master/macOS-libvirt-Catalina.xml
-
-
 
 ## MacOS Installer
 Clone [OSX-KVM](https://github.com/kholia/OSX-KVM) 
