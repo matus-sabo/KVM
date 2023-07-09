@@ -5,14 +5,94 @@ QEMU / libvirt with virt-manager GUI
 # Host os system 
 
 - **Fedora 38** 
+```bash
+             .',;::::;,'.                edko@edko 
+         .';:cccccccccccc:;,.            --------- 
+      .;cccccccccccccccccccccc;.         OS: Fedora Linux 38 (Workstation Edition) x86_64 
+    .:cccccccccccccccccccccccccc:.       Host: ALZA Alza BattleBox Ryzen RX 6900 X 
+  .;ccccccccccccc;.:dddl:.;ccccccc;.     Kernel: 6.3.11-200.fc38.x86_64 
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.    Uptime: 49 mins 
+.:ccccccccccccc;KMMc;cc;xMMc:ccccccc:.   Packages: 1900 (rpm), 9 (flatpak) 
+,cccccccccccccc;MMM.;cc;;WW::cccccccc,   Shell: bash 5.2.15 
+:cccccccccccccc;MMM.;cccccccccccccccc:   Resolution: 3440x1440 
+:ccccccc;oxOOOo;MMM0OOk.;cccccccccccc:   DE: GNOME 44.2 
+cccccc:0MMKxdd:;MMMkddc.;cccccccccccc;   WM: Mutter 
+ccccc:XM0';cccc;MMM.;cccccccccccccccc'   WM Theme: Adwaita 
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;    Theme: Adwaita [GTK2/3] 
+ccccc;0MNc.ccc.xMMd:ccccccccccccccc;     Icons: Adwaita [GTK2/3] 
+cccccc;dNMWXXXWM0::cccccccccccccc:,      Terminal: gnome-terminal 
+cccccccc;.:odl:.;cccccccccccccc:,.       CPU: AMD Ryzen 9 5900X (24) @ 3.700GHz 
+:cccccccccccccccccccccccccccc:'.         GPU: AMD ATI Radeon RX 7700S/7600S/7600M XT 
+.:cccccccccccccccccccccc:;,..            GPU: AMD ATI Radeon RX 6800/6800 XT / 6900 XT 
+  '::cccccccccccccc::;,.                 Memory: 3199MiB / 31983MiB 
+```
 
 # KVM os systems 
 
 - **Fedora 38** 
+```bash
+             .',;::::;,'.                edko@edko-vm 
+         .';:cccccccccccc:;,.            ------------ 
+      .;cccccccccccccccccccccc;.         OS: Fedora Linux 38 (Workstation Editi 
+    .:cccccccccccccccccccccccccc:.       Host: KVM/QEMU (Standard PC (Q35 + ICH 
+  .;ccccccccccccc;.:dddl:.;ccccccc;.     Kernel: 6.3.11-200.fc38.x86_64 
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.    Uptime: 34 secs 
+.:ccccccccccccc;KMMc;cc;xMMc:ccccccc:.   Packages: 1962 (rpm), 7 (flatpak) 
+,cccccccccccccc;MMM.;cc;;WW::cccccccc,   Shell: bash 5.2.15 
+:cccccccccccccc;MMM.;cccccccccccccccc:   Resolution: 3440x1440 
+:ccccccc;oxOOOo;MMM0OOk.;cccccccccccc:   DE: GNOME 44.2 
+cccccc:0MMKxdd:;MMMkddc.;cccccccccccc;   WM: Mutter 
+ccccc:XM0';cccc;MMM.;cccccccccccccccc'   WM Theme: Adwaita 
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;    Theme: Adwaita [GTK2/3] 
+ccccc;0MNc.ccc.xMMd:ccccccccccccccc;     Icons: Adwaita [GTK2/3] 
+cccccc;dNMWXXXWM0::cccccccccccccc:,      Terminal: gnome-terminal 
+cccccccc;.:odl:.;cccccccccccccc:,.       CPU: AMD Ryzen 9 5900X (20) @ 3.692GHz 
+:cccccccccccccccccccccccccccc:'.         GPU: AMD ATI Radeon RX 6800/6800 XT /  
+.:cccccccccccccccccccccc:;,..            Memory: 1687MiB / 26011MiB 
+  '::cccccccccccccc::;,.
+```
 
 - **Mac OSX** 
+```bash
+                    'c.          edko@edko-vm 
+                 ,xNMM.          ------------ 
+               .OMMMMo           OS: macOS 13.4.1 22F82 x86_64 
+               OMMM0,            Host: iMacPro1,1 
+     .;loddo:' loolloddol;.      Kernel: 22.5.0 
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 9 mins 
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 2 (brew) 
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9 
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 3440x1440 
+:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua 
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor 
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Blue (Dark) 
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: HyperTerm 
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: Menlo 
+    kMMMMMMMMMMMMMMMMMMMMMMd     CPU: Intel (Haswell, no TSX) 
+     ;KMMMMMMMWXXWMMMMMMMk.      GPU: AMD Radeon RX 6900 XT 
+       .cooc,.    .,coo:.        Memory: 9000MiB / 26624MiB
+```
 
-- **Windows**  
+- **Windows** 
+```bash
+        ,.=:!!t3Z3z.,                  matus@edko-vm
+       :tt:::tt333EE3                  -------------
+       Et:::ztt33EEEL @Ee.,      ..,   OS: Windows 11 Pro N x86_64
+      ;tt:::tt333EE7 ;EEEEEEttttt33#   Host: QEMU Standard PC (Q35 + ICH9, 2009)
+     :Et:::zt333EEQ. $EEEEEttttt33QL   Kernel: 10.0.22621
+     it::::tt333EEF @EEEEEEttttt33F    Uptime: 5 mins
+    ;3=*^```"*4EEV :EEEEEEttttt33@.    Packages: 4 (scoop)
+    ,.=::::!t=., ` @EEEEEEtttz33QF     Shell: bash 5.2.15
+   ;::::::::zt33)   "4EEEtttji3P*      Resolution: 3440x1440
+  :t::::::::tt33.:Z3z..  `` ,..g.      DE: Aero
+  i::::::::zt33F AEEEtttt::::ztF       WM: Explorer
+ ;:::::::::t33V ;EEEttttt::::t3        WM Theme: aero
+ E::::::::zt33L @EEEtttt::::z3F        CPU: AMD Ryzen 9 5900X (20) @ 3.700GHz
+{3=*^```"*4E3) ;EEEtttt:::::tZ`        GPU: Caption
+             ` :EEEEtttt::::z7         GPU: AMD Radeon RX 6900 XT
+                 "VEzjt:;;z>*`         GPU
+                                       Memory: 6099MiB / 26604MiB
+```
 
 # Build Specs
 
