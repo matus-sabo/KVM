@@ -1,5 +1,7 @@
 # KVM libvirt passthrough virtualization
 
+QEMU / libvirt with virt-manager GUI
+
 # Host os system 
 
 - **Fedora 38** 
@@ -283,4 +285,4 @@ Run `./scripts/umount-osx-efi.sh` to unmount `OpenCore-v20.iso`
 
 [Fedora virtio](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers)
 
-[Arch PCI passthroug examples](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF/Examples)
+[Arch PCI passthrough examples](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF/Examples)
