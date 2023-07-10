@@ -2,3 +2,4 @@ OpenCore*
 BaseSystem*
 vm
 EFI
+hooks

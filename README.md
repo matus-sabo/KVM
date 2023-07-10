@@ -164,6 +164,31 @@ cccccccc;.:odl:.;cccccccccccccc:,.       CPU: AMD Ryzen 9 5900X (20) @ 3.692GHz
 10:00.4 Audio device [0403]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse HD Audio Controller [1022:1487]
 ```
 
+# lsusb
+```bash
+Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 005: ID 09da:fa10 A4Tech Co., Ltd. USB Device 
+Bus 005 Device 004: ID 09da:fac7 A4Tech Co., Ltd. USB Device 
+Bus 005 Device 003: ID 0c76:120c JMTek, LLC. CMI-9010-BK
+Bus 005 Device 002: ID 0c45:6366 Microdia Webcam Vitade AF
+Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 004 Device 002: ID 125f:a67a A-DATA Technology Co., Ltd. SD700
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 002: ID 0b05:1939 ASUSTek Computer, Inc. AURA LED Controller
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 003: ID 0bda:8153 Realtek Semiconductor Corp. RTL8153 Gigabit Ethernet Adapter
+Bus 002 Device 002: ID 2109:0817 VIA Labs, Inc. USB3.0 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 005: ID 1e71:2007 NZXT NZXT USB Device
+Bus 001 Device 008: ID 8087:0029 Intel Corp. AX200 Bluetooth
+Bus 001 Device 007: ID 1a40:0801 Terminus Technology Inc. USB 2.0 Hub
+Bus 001 Device 006: ID 2109:2817 VIA Labs, Inc. USB2.0 Hub             
+Bus 001 Device 004: ID 2109:0102 VIA Labs, Inc. USB 2.0 BILLBOARD             
+Bus 001 Device 002: ID 1a40:0801 Terminus Technology Inc. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+```
+
 # BIOS 
 
 ## Grub enable IOMMU
@@ -240,9 +265,9 @@ Copy `BaseSystem.img` to root of this repository
 Download [thenickdude](https://github.com/thenickdude/KVM-Opencore) [OpenCore ISO](https://github.com/thenickdude/KVM-Opencore/releases)
 and put it root of this repository
 
-I am using `OpenCore-v20.iso` if you use different version you will have to update `scripts/mount-osx-efi.sh` to match name of the file.
+I am using `OpenCore-v20.iso` if you use different version you will have to update `scripts/osx-efi-mount.sh` to match name of the file.
 
-Run `./scripts/mount-osx-efi.sh` to mount `OpenCore-v20.iso` in read / write mode.
+Run `./scripts/osx-efi-mount.sh` to mount `OpenCore-v20.iso` in read / write mode.
 
 You will see mounted `EFI` folder in root of this repository 
 
@@ -348,7 +373,44 @@ Sample of `config.plist` - `Output`
     <false/>
 </dict>
 ```
-Run `./scripts/umount-osx-efi.sh` to unmount `OpenCore-v20.iso`
+Run `./scripts/osx-efi-umount.sh` to unmount `OpenCore-v20.iso`
+
+# Postinstall VFIO
+
+## libvirt hooks 
+
+Create hooks directroy
+
+```bash
+sudo mkdir /etc/libvirt/hooks
+```
+
+Mount /etc/libvirt/hooks to `./hooks` as local user
+
+```bash
+ ./scripts/hooks-mount.sh
+```
+
+Unmount `./hooks`, set permissions and restart `libvirtd` service
+
+```bash
+ ./scripts/hooks-umount.sh
+```
+
+## Switch displays libvirt hook
+
+Install dependecy and copy from `./hooks-sample` to `./hooks` folder
+
+```
+sudo dnf install ddcutil
+```
+
+Set correct ENV values in `./hooks/kvm.conf`
+
+## Debug
+```
+journalctl -u virtqemud
+```
 
 # Thanks to
 [OSX-KVM](https://github.com/kholia/OSX-KVM)
@@ -362,3 +424,5 @@ Run `./scripts/umount-osx-efi.sh` to unmount `OpenCore-v20.iso`
 [Fedora virtio](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers)
 
 [Arch PCI passthrough examples](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF/Examples)
+
+[VFIO-Tools](https://github.com/PassthroughPOST/VFIO-Tools)

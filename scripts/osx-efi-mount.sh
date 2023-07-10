@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Check if nbd module is already loaded
 if lsmod | grep -q "^nbd"; then

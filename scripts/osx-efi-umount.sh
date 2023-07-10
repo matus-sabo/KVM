@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Unmount the image from the "mnt" directory
 sudo umount EFI
