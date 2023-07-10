@@ -399,7 +399,7 @@ Unmount `./hooks`, set permissions and restart `libvirtd` service
 
 ## Switch displays libvirt hook
 
-Install dependecy and copy from `./hooks-sample` to `./hooks` folder
+Install dependency [ddcutil](https://github.com/rockowitz/ddcutil) and copy files and folders from `./hooks-sample` to `./hooks` folder
 
 ```
 sudo dnf install ddcutil
