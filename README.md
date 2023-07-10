@@ -108,6 +108,8 @@ cccccccc;.:odl:.;cccccccccccccc:,.       CPU: AMD Ryzen 9 5900X (20) @ 3.692GHz
 
 - **Storage** | WD Black SN850 NVMe SSD 2 TB
 
+- **Monitor** | 34" AOC CU34G2X/BK | 3440x1440 | 144 Hz
+
 # lspci
 ```bash
 00:00.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse Root Complex [1022:1480]
