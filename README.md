@@ -428,3 +428,5 @@ journalctl -u virtqemud
 [Arch PCI passthrough examples](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF/Examples)
 
 [VFIO-Tools](https://github.com/PassthroughPOST/VFIO-Tools)
+
+[pam-bluetooth](https://github.com/nahil1/pam-bluetooth)

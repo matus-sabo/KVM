@@ -178,6 +178,9 @@
       <source dev="/dev/input/by-path/pci-0000:10:00.3-usb-0:3:1.1-event-mouse"/>
     </input>
     <input type="evdev">
+      <source dev="/dev/input/by-path/pci-0000:10:00.3-usb-0:4:1.0-event-kbd" grab="all" grabToggle="scrolllock" repeat="on"/>
+    </input>
+    <input type="evdev">
       <source dev="/dev/input/by-path/pci-0000:10:00.3-usb-0:4:1.2-event-kbd" grab="all" grabToggle="scrolllock" repeat="on"/>
     </input>
     <graphics type="spice" autoport="yes">
