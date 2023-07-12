@@ -227,7 +227,4 @@
     <qemu:arg value="-cpu"/>
     <qemu:arg value="Haswell-noTSX,vendor=GenuineIntel,+invtsc,+hypervisor,kvm=on,vmware-cpuid-freq=on"/>
   </qemu:commandline>
-  <qemu:capabilities>
-    <qemu:del capability="usb-host.hostdevice"/>
-  </qemu:capabilities>
 </domain>
