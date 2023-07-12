@@ -3,3 +3,4 @@ BaseSystem*
 vm
 EFI
 hooks
+EFI-backup

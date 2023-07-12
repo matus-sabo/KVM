@@ -223,21 +223,17 @@
       </source>
       <address type="pci" domain="0x0000" bus="0x09" slot="0x00" function="0x0"/>
     </hostdev>
-    <hostdev mode="subsystem" type="usb" managed="yes">
-      <source startupPolicy="optional">
-        <vendor id="0x0c45"/>
-        <product id="0x6366"/>
-        <address bus="5" device="2"/>
+    <hostdev mode="subsystem" type="pci" managed="yes">
+      <source>
+        <address domain="0x0000" bus="0x09" slot="0x00" function="0x1"/>
       </source>
-      <address type="usb" bus="0" port="1"/>
+      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
     </hostdev>
-    <hostdev mode="subsystem" type="usb" managed="yes">
-      <source startupPolicy="optional">
-        <vendor id="0x0c76"/>
-        <product id="0x120c"/>
-        <address bus="5" device="3"/>
+    <hostdev mode="subsystem" type="pci" managed="yes">
+      <source>
+        <address domain="0x0000" bus="0x09" slot="0x00" function="0x3"/>
       </source>
-      <address type="usb" bus="0" port="4"/>
+      <address type="pci" domain="0x0000" bus="0x0a" slot="0x00" function="0x0"/>
     </hostdev>
     <redirdev bus="usb" type="spicevmc">
       <address type="usb" bus="0" port="2"/>

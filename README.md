@@ -427,6 +427,8 @@ journalctl -u virtqemud
 
 [Arch PCI passthrough examples](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF/Examples)
 
+[Arch USB controller IOMMU group](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#USB_controller)
+
 [VFIO-Tools](https://github.com/PassthroughPOST/VFIO-Tools)
 
 [pam-bluetooth](https://github.com/matus-sabo/pam-bluetooth)

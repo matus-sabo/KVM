@@ -15,8 +15,14 @@ source "/etc/libvirt/hooks/kvm.conf"
 
 if [[ "$2/$3" == "started/begin" ]]; then
     INPUT="$VM_INPUT"
-elif [[ "$2/$3" == "stopped/end" ]]; then
+fi
+
+if [[ "$2/$3" == "stopped/end" ]]; then
     INPUT="$HOST_INPUT"
 fi
 
-ddcutil -d "$VM_DISPLAY" setvcp 60 "0x$INPUT"
+CURRENT_INPUT="$(ddcutil -d $VM_DISPLAY getvcp 60 --terse | awk '{print $4}')"
+
+if [[ "$CURRENT_INPUT" != "$INPUT" ]]; then
+    ddcutil -d $VM_DISPLAY setvcp 60 $INPUT
+fi

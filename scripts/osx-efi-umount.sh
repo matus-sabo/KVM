@@ -11,7 +11,7 @@ sudo qemu-nbd --disconnect /dev/nbd0
 echo "NBD device disconnected."
 
 # Remove the "EFI" directory
-sudo rm -rf EFI
+rm -rf EFI
 sudo rm -rf /mnt/OSX-EFI
 
 echo "Directory 'EFI' removed."
