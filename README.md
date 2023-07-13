@@ -379,7 +379,15 @@ Run `./scripts/osx-efi-umount.sh` to unmount `OpenCore-v20.iso`
 
 # Postinstall VFIO
 
-## libvirt hooks 
+## Evsieve
+
+```bash
+sudo cp ./evsieve/evsieve@.service /usr/lib/systemd/system/evsieve@.service
+sudo systemctl enable evsieve@host
+sudo systemctl start evsieve@host
+```
+
+## Libvirt hooks 
 
 Create hooks directroy
 
@@ -399,19 +407,20 @@ Unmount `./hooks`, set permissions and restart `libvirtd` service
  ./scripts/hooks-umount.sh
 ```
 
-## Switch displays libvirt hook
+## Switch displays
 
 Install dependency [ddcutil](https://github.com/rockowitz/ddcutil) and copy files and folders from `./hooks-sample` to `./hooks` folder
 
-```
+```bash
 sudo dnf install ddcutil
 ```
 
-Set correct ENV values in `./hooks/kvm.conf`
+Set correct ENV values in `./hooks/kvm.conf` and `evsieve/switch-display.sh`
+
 
 ## Debug
 ```
-journalctl -u virtqemud
+journalctl -f
 ```
 
 # Thanks to
@@ -432,3 +441,5 @@ journalctl -u virtqemud
 [VFIO-Tools](https://github.com/PassthroughPOST/VFIO-Tools)
 
 [pam-bluetooth](https://github.com/matus-sabo/pam-bluetooth)
+
+[evsieve](https://github.com/KarsMulder/evsieve)
