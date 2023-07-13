@@ -5,14 +5,14 @@
 
 set -e
 
-GUEST_NAME="$1"
+VM_NAME="$1"
 HOOK_NAME="$2"
 STATE_NAME="$3"
 MISC="${@:4}"
 
 BASEDIR="$(dirname $0)"
 
-HOOKPATH="$BASEDIR/qemu.d/$GUEST_NAME/$HOOK_NAME.sh"
+HOOKPATH="$BASEDIR/qemu.d/$VM_NAME/$HOOK_NAME.sh"
 
 if [ -f "$HOOKPATH" ] && [ -s "$HOOKPATH" ] && [ -x "$HOOKPATH" ]; then
     eval \"$HOOKPATH\" "$@"
