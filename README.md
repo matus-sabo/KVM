@@ -269,7 +269,7 @@ and put it root of this repository
 
 I am using `OpenCore-v20.iso` if you use different version you will have to update `scripts/osx-efi-mount.sh` to match name of the file.
 
-Run `./scripts/osx-efi-mount.sh` to mount `OpenCore-v20.iso` in read / write mode.
+Run `./scripts/osx-efi.sh mount` to mount `OpenCore-v20.iso` in read / write mode.
 
 You will see mounted `EFI` folder in root of this repository 
 
@@ -375,16 +375,26 @@ Sample of `config.plist` - `Output`
     <false/>
 </dict>
 ```
-Run `./scripts/osx-efi-umount.sh` to unmount `OpenCore-v20.iso`
+Run `./scripts/osx-efi.sh umount` to unmount `OpenCore-v20.iso`
 
 # Postinstall VFIO
 
 ## Evsieve
 
+Install evsieve@ service
+
 ```bash
 sudo cp ./evsieve/evsieve@.service /usr/lib/systemd/system/evsieve@.service
 sudo systemctl enable evsieve@host
 sudo systemctl start evsieve@host
+```
+
+Remove evsieve@ service
+
+```bash
+sudo systemctl stop evsieve@host
+sudo systemctl disable evsieve@host
+sudo rm /usr/lib/systemd/system/evsieve@.service
 ```
 
 ## Libvirt hooks 
@@ -398,13 +408,13 @@ sudo mkdir /etc/libvirt/hooks
 Mount /etc/libvirt/hooks to `./hooks` as local user
 
 ```bash
- ./scripts/hooks-mount.sh
+ ./scripts/hooks.sh mount
 ```
 
 Unmount `./hooks`, set permissions and restart `libvirtd` service
 
 ```bash
- ./scripts/hooks-umount.sh
+ ./scripts/hooks.sh umount
 ```
 
 ## Switch displays
