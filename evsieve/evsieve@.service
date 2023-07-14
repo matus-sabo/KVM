@@ -7,7 +7,6 @@ Type=simple
 User=root
 WorkingDirectory=/home/edko/Sandbox/Personal/KVM
 ExecStart=/bin/bash evsieve/evsieve.sh %I
-NotifyAccess=all
 
 [Install]
 WantedBy=multi-user.target
