@@ -377,6 +377,10 @@ Sample of `config.plist` - `Output`
 ```
 Run `./scripts/osx-efi.sh umount` to unmount `OpenCore-v20.iso`
 
+## Bluetooth fix 
+
+Bluetooth Address in Apple Menu (While holding Alt) -> System Info -> Hardware -> Bluetooth then append export BT_DEVICE_ADDRESS="ma:ca:dd:re:ss:he:re" to /etc/zshenv. This appears to have fixed it for me.
+
 # Postinstall VFIO
 
 ## Evsieve
