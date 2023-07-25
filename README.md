@@ -440,6 +440,11 @@ sudo dnf install ddcutil
 
 Set correct ENV values in `./hooks/kvm.conf` and `evsieve/switch-display.sh`
 
+## Resize disk image
+
+```bash
+sudo qemu-img resize /path/to/your/disk/image.qcow2 931G
+```
 
 ## Debug
 ```
