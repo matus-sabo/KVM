@@ -204,8 +204,7 @@ GRUB_CMDLINE_LINUX="... amd_iommu=on ..."
 Create /etc/modules-load.d/vfio.conf to enable VFIO kernel modules
 ```
 vfio
-vfio-pci
-vfio_virqfd
+vfio_pci
 vfio_iommu_type1
 ```
 
