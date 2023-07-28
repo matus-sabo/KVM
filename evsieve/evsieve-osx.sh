@@ -8,8 +8,8 @@ evsieve --input  $KEYBOARD_INPUT_1 domain=kb1 grab \
         --toggle @kb1 @vm-kb @host-kb \
         --toggle @kb2 @vm-kb @host-kb \
         --toggle @ms @vm-ms @host-ms \
-        --hook   key:scrolllock@host-kb toggle=:1 exec-shell="evsieve/switch-display.sh vm" \
-        --hook   key:scrolllock@vm-kb toggle=:2 exec-shell="evsieve/switch-display.sh host" \
+        --hook   key:scrolllock@host-kb toggle=:1 exec-shell="evsieve/switch-display.sh vm" send-key=key:esc@vm-kb \
+        --hook   key:scrolllock@vm-kb toggle=:2 exec-shell="evsieve/switch-display.sh host" send-key=key:esc@host-kb \
         --map    key:leftalt@host-kb key:leftctrl \
         --map    yield key:leftalt@vm-kb key:leftmeta \
         --output @host-kb create-link=$HOST_KEYBOAD_INPUT \
