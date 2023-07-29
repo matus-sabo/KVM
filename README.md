@@ -448,6 +448,10 @@ sudo pkill bluetoothd
 
 ## Evsieve
 
+```bash
+sudo dnf install evemu
+```
+
 Install evsieve@ service
 
 ```bash

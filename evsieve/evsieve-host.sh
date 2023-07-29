@@ -9,8 +9,8 @@ evsieve --input  $KEYBOARD_INPUT_1 domain=kb1 grab \
         --toggle @kb2 @host-kb @vm-kb \
         --toggle @ms @host-ms "" \
         --map    key:leftalt@host-kb key:leftctrl \
-        --output @host-kb create-link=$HOST_KEYBOAD_INPUT \
-        --output @vm-kb create-link=$VM_KEYBOARD_INPUT \
-        --output @host-ms create-link=$HOST_MOUSE_INPUT \
-        --output @vm-ms create-link=$VM_MOUSE_INPUT
+        --output @host-kb create-link=$KEYBOARD_HOST_INPUT \
+        --output @vm-kb create-link=$KEYBOARD_VM_INPUT \
+        --output @host-ms create-link=$MOUSE_HOST_INPUT \
+        --output @vm-ms create-link=$MOUSE_VM_INPUT
  

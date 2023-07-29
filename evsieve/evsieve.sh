@@ -6,23 +6,21 @@ COMMAND="evsieve/evsieve-$TYPE.sh"
 trap 'kill -- -$$' EXIT
 echo "Service started $TYPE"
 
+if [[ "$TYPE" == "host" ]]; then
+    systemctl stop evsieve@fedora
+    systemctl stop evsieve@osx
+    systemctl stop evsieve@windows
+    sleep 1
+    evsieve/press-key.sh keyboard1 KEY_ESC
+    evsieve/switch-display.sh host
+fi
+
 if [[ "$TYPE" != "host" ]]; then
     systemctl stop evsieve@host
+    sleep 1 
+    evsieve/switch-display.sh vm
 fi
 
-if [[ "$TYPE" != "fedora" ]]; then
-    systemctl stop evsieve@fedora
-fi
-
-if [[ "$TYPE" != "osx" ]]; then
-    systemctl stop evsieve@osx
-fi
-
-if [[ "$TYPE" != "windows" ]]; then
-    systemctl stop evsieve@windows
-fi
-
-sleep 1
 sudo $COMMAND
 
-echo "Service stopped $TYPE"
+echo "Service stopped $TYPE

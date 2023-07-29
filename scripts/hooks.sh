@@ -4,13 +4,13 @@ set -e
 
 OP="$1"
 
-if [[ "$TYPE" != "mount" ]]; then
+if [[ "$OP" == "mount" ]]; then
     mkdir -p hooks
     sudo bindfs -u $(whoami) /etc/libvirt/hooks ./hooks
     echo "/etc/libvirt/hooks mounted to 'hooks' directory with desired ownership successfully."
 fi
 
-if [[ "$TYPE" != "umount" ]]; then
+if [[ "$OP" == "umount" ]]; then
     fuser -m hooks -k
     sleep 2
     sudo umount hooks

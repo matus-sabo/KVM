@@ -4,7 +4,7 @@ set -e
 
 OP="$1"
 
-if [[ "$TYPE" != "mount" ]]; then
+if [[ "$OP" == "mount" ]]; then
     if lsmod | grep -q "^nbd"; then
     echo "nbd module is already loaded. Proceeding..."
     else
@@ -32,7 +32,7 @@ if [[ "$TYPE" != "mount" ]]; then
     echo "OpenCore Image mounted to 'EFI' directory with desired ownership successfully."
 fi
 
-if [[ "$TYPE" != "umount" ]]; then
+if [[ "$OP" == "umount" ]]; then
    # Unmount the image from the "mnt" directory
     sudo umount EFI
     sudo umount /mnt/OSX-EFI
