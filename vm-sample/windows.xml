@@ -48,7 +48,7 @@
       <driver name="qemu" type="qcow2" discard="unmap"/>
       <source file="/mnt/KINGSTON-2TB/windows.qcow2"/>
       <target dev="sda" bus="sata"/>
-      <boot order="2"/>
+      <boot order="1"/>
       <address type="drive" controller="0" bus="0" target="0" unit="0"/>
     </disk>
     <disk type="file" device="cdrom">
@@ -56,7 +56,6 @@
       <source file="/home/edko/Downloads/Win11_22H2_English_x64v2.iso"/>
       <target dev="sdb" bus="sata"/>
       <readonly/>
-      <boot order="1"/>
       <address type="drive" controller="0" bus="0" target="0" unit="1"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15">
@@ -142,7 +141,7 @@
     <interface type="network">
       <mac address="52:54:00:f5:d3:28"/>
       <source network="default"/>
-      <model type="e1000e"/>
+      <model type="virtio"/>
       <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
     </interface>
     <serial type="pty">
