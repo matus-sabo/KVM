@@ -22,20 +22,15 @@
     <acpi/>
     <apic/>
     <vmport state="off"/>
+    <smm state="on"/>
   </features>
   <cpu mode="host-passthrough" check="none" migratable="on">
     <topology sockets="5" dies="1" cores="2" threads="2"/>
-    <cache mode="passthrough"/>
-    <feature policy="require" name="topoext"/>
-    <feature policy="disable" name="invtsc"/>
-    <feature policy="disable" name="svm"/>
   </cpu>
   <clock offset="utc">
     <timer name="rtc" tickpolicy="catchup"/>
     <timer name="pit" tickpolicy="delay"/>
     <timer name="hpet" present="no"/>
-    <timer name="hypervclock" present="yes"/>
-    <timer name="tsc" present="yes" mode="native"/>
   </clock>
   <on_poweroff>destroy</on_poweroff>
   <on_reboot>restart</on_reboot>
@@ -47,7 +42,7 @@
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="file" device="disk">
-      <driver name="qemu" type="raw" cache="writeback" io="threads"/>
+      <driver name="qemu" type="raw" discard="unmap"/>
       <source file="/home/edko/Sandbox/Personal/KVM/OpenCore-v20.iso"/>
       <backingStore/>
       <target dev="sda" bus="sata"/>
@@ -61,7 +56,7 @@
       <address type="drive" controller="0" bus="0" target="0" unit="1"/>
     </disk>
     <disk type="file" device="disk">
-      <driver name="qemu" type="raw" cache="writeback" io="threads"/>
+      <driver name="qemu" type="raw" discard="unmap"/>
       <source file="/home/edko/Sandbox/Personal/KVM/BaseSystem.img"/>
       <backingStore/>
       <target dev="sdc" bus="sata"/>
