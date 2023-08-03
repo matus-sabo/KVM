@@ -5,7 +5,7 @@ source "evsieve/evsieve.conf"
 TARGET="$1"
 EV_KEY="$2"
 
-if [[ "$TARGET" == "keyboard1" ]]; then
+if [[ "$TARGET" == "keyboard" ]]; then
     KEYBOARD_INPUT="$KEYBOARD_INPUT_1"
 fi
 
@@ -17,5 +17,7 @@ if [[ "$TARGET" == "vm" ]]; then
     KEYBOARD_INPUT="$KEYBOARD_VM_INPUT"
 fi
 
-evemu-event "$KEYBOARD_INPUT" --type EV_KEY --code $EV_KEY --value 1 --sync
-evemu-event "$KEYBOARD_INPUT" --type EV_KEY --code $EV_KEY --value 0 --sync
+if [[ -L "$KEYBOARD_INPUT" ]]; then
+    evemu-event "$KEYBOARD_INPUT" --type EV_KEY --code $EV_KEY --value 1 --sync
+    evemu-event "$KEYBOARD_INPUT" --type EV_KEY --code $EV_KEY --value 0 --sync
+fi

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "evsieve/evsieve.conf"
+
 TYPE="$1"
 COMMAND="evsieve/evsieve-$TYPE.sh"
 
@@ -7,20 +9,19 @@ trap 'kill -- -$$' EXIT
 echo "Service started $TYPE"
 
 if [[ "$TYPE" == "host" ]]; then
-    systemctl stop evsieve@fedora
-    systemctl stop evsieve@osx
-    systemctl stop evsieve@windows
-    sleep 1
-    evsieve/press-key.sh keyboard1 KEY_ESC
-    evsieve/switch-display.sh host
+    if [[ -L "$KEYBOARD_HOST_INPUT" ]]; then
+        evsieve/toggle.sh host
+        evsieve/press-key.sh host KEY_ESC
+    fi
+    systemctl stop evsieve@fedora evsieve@osx evsieve@windows
 fi
 
 if [[ "$TYPE" != "host" ]]; then
+    evsieve/toggle.sh vm
     systemctl stop evsieve@host
-    sleep 1 
-    evsieve/switch-display.sh vm
 fi
 
+sleep 1
 sudo $COMMAND
 
 echo "Service stopped $TYPE
