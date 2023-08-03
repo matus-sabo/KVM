@@ -10,14 +10,14 @@ echo "Service started $TYPE"
 
 if [[ "$TYPE" == "host" ]]; then
     if [[ -L "$KEYBOARD_HOST_INPUT" ]]; then
-        evsieve/toggle.sh host
+        evsieve/switch-display.sh host
         evsieve/press-key.sh host KEY_ESC
     fi
     systemctl stop evsieve@fedora evsieve@osx evsieve@windows
 fi
 
 if [[ "$TYPE" != "host" ]]; then
-    evsieve/toggle.sh vm
+    evsieve/switch-display.sh vm
     systemctl stop evsieve@host
 fi
 
