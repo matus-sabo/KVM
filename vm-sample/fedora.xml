@@ -1,4 +1,4 @@
-<domain type="kvm">
+<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
   <name>fedora</name>
   <uuid>ad4b58fd-15b8-4993-803a-c1a62985d586</uuid>
   <metadata>
@@ -218,4 +218,8 @@
       <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
     </rng>
   </devices>
+  <qemu:commandline>
+    <qemu:arg value="-fw_cfg"/>
+    <qemu:arg value="opt/ovmf/X-PciMmio64Mb,string=65536"/>
+  </qemu:commandline>
 </domain>

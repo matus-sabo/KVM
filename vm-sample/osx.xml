@@ -218,5 +218,7 @@
     <qemu:arg value="ICH9-LPC.acpi-pci-hotplug-with-bridge-support=off"/>
     <qemu:arg value="-cpu"/>
     <qemu:arg value="Haswell-noTSX,vendor=GenuineIntel,+invtsc,+hypervisor,kvm=on,vmware-cpuid-freq=on"/>
+    <qemu:arg value="-fw_cfg"/>
+    <qemu:arg value="opt/ovmf/X-PciMmio64Mb,string=65536"/>
   </qemu:commandline>
 </domain>
