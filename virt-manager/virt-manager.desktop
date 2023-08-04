@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Virtual Machine Manager
+Comment=Manage virtual machines
+Icon=virt-manager
+Exec=/home/edko/Sandbox/Personal/KVM/scripts/open-virt-manager.sh 
+Type=Application
+Terminal=false
+Keywords=vmm;
+Categories=System;
