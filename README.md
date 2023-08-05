@@ -529,3 +529,7 @@ journalctl -f
 [pam-bluetooth](https://github.com/matus-sabo/pam-bluetooth)
 
 [evsieve](https://github.com/KarsMulder/evsieve)
+
+[fedora hibernation 1](https://linuxconfig.org/how-to-restore-hibernation-on-fedora-35)
+
+[fedora hibernation 2](https://fedoramagazine.org/hibernation-in-fedora-36-workstation)
