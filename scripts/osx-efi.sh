@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#
+#  Copyright (c) 2023 RoyalGraphX
+#  Copyright (c) 2023 matus-sabo
+#  BSD 3-Clause License
+#
+
 set -e
 
 OP="$1"
