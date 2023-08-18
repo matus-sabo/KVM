@@ -11,8 +11,9 @@ STATE_NAME="$3"
 MISC="${@:4}"
 
 BASEDIR="$(dirname $0)"
-
 HOOKPATH="$BASEDIR/qemu.d/$VM_NAME/$HOOK_NAME.sh"
+
+cd /home/edko/Sandbox/Personal/KVM
 
 if [ -f "$HOOKPATH" ] && [ -s "$HOOKPATH" ] && [ -x "$HOOKPATH" ]; then
     eval \"$HOOKPATH\" "$@"

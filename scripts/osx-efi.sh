@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 OP="$1"
 
 if [[ "$OP" == "mount" ]]; then
