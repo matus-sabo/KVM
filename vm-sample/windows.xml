@@ -8,7 +8,35 @@
   </metadata>
   <memory unit="KiB">27262976</memory>
   <currentMemory unit="KiB">27262976</currentMemory>
+  <memoryBacking>
+    <hugepages/>
+  </memoryBacking>
   <vcpu placement="static">20</vcpu>
+  <iothreads>1</iothreads>
+  <cputune>
+    <vcpupin vcpu="0" cpuset="0"/>
+    <vcpupin vcpu="1" cpuset="12"/>
+    <vcpupin vcpu="2" cpuset="1"/>
+    <vcpupin vcpu="3" cpuset="13"/>
+    <vcpupin vcpu="4" cpuset="2"/>
+    <vcpupin vcpu="5" cpuset="14"/>
+    <vcpupin vcpu="6" cpuset="3"/>
+    <vcpupin vcpu="7" cpuset="15"/>
+    <vcpupin vcpu="8" cpuset="4"/>
+    <vcpupin vcpu="9" cpuset="16"/>
+    <vcpupin vcpu="10" cpuset="5"/>
+    <vcpupin vcpu="11" cpuset="17"/>
+    <vcpupin vcpu="12" cpuset="6"/>
+    <vcpupin vcpu="13" cpuset="18"/>
+    <vcpupin vcpu="14" cpuset="7"/>
+    <vcpupin vcpu="15" cpuset="19"/>
+    <vcpupin vcpu="16" cpuset="8"/>
+    <vcpupin vcpu="17" cpuset="20"/>
+    <vcpupin vcpu="18" cpuset="9"/>
+    <vcpupin vcpu="19" cpuset="21"/>
+    <emulatorpin cpuset="10,22"/>
+    <iothreadpin iothread="1" cpuset="11,23"/>
+  </cputune>
   <os>
     <type arch="x86_64" machine="pc-q35-7.2">hvm</type>
     <loader readonly="yes" secure="yes" type="pflash">/usr/share/edk2/ovmf/OVMF_CODE.secboot.fd</loader>
@@ -26,8 +54,10 @@
     <vmport state="off"/>
     <smm state="on"/>
   </features>
-  <cpu mode="host-passthrough" check="none" migratable="off">
+  <cpu mode="host-passthrough" check="none" migratable="on">
     <topology sockets="1" dies="1" cores="10" threads="2"/>
+    <cache mode="passthrough"/>
+    <feature policy="require" name="topoext"/>
   </cpu>
   <clock offset="localtime">
     <timer name="rtc" tickpolicy="catchup"/>
@@ -45,18 +75,11 @@
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="file" device="disk">
-      <driver name="qemu" type="qcow2" discard="unmap"/>
+      <driver name="qemu" type="qcow2" cache="none" io="native" discard="unmap" iothread="1" queues="2"/>
       <source file="/mnt/KINGSTON-2TB/windows.qcow2"/>
-      <target dev="sda" bus="sata"/>
+      <target dev="vda" bus="virtio"/>
       <boot order="1"/>
-      <address type="drive" controller="0" bus="0" target="0" unit="0"/>
-    </disk>
-    <disk type="file" device="cdrom">
-      <driver name="qemu" type="raw"/>
-      <source file="/home/edko/Downloads/Win11_22H2_English_x64v2.iso"/>
-      <target dev="sdb" bus="sata"/>
-      <readonly/>
-      <address type="drive" controller="0" bus="0" target="0" unit="1"/>
+      <address type="pci" domain="0x0000" bus="0x0a" slot="0x00" function="0x0"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15">
       <address type="pci" domain="0x0000" bus="0x02" slot="0x00" function="0x0"/>
